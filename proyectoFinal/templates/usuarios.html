@@ -1,0 +1,63 @@
+
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block nombres %} Usuarios {% endblock %} 
+
+{% block header %}
+	<h1 align="center" class="page-header"><strong><font color="olive">Usuarios Administradores</font></strong></h1>
+{% endblock %}
+
+{% block contenido %}
+<img src="/static/img/usuarios.jpg" align="left" style="width:200px;height:200px;">
+<a href="/usuario/nuevo">Agregar un Usuario</a>
+<ul>
+	{% for dato in usuarios %}
+	<!-- dato.username|capfirst utilizado para poner la primer letra del usuario en mayuscula (Capitalizar nombre)-->
+	<li> {{dato.username|capfirst}} - <em>{{dato.email}}</em>
+		<ul>
+			{% for item in pacientes%}
+				{% if item.usuario == dato %}
+				<li>{{item}}</li>
+				{% endif %}		
+			{% empty %}
+				<li>El usuario no ha registrado pacientes.</li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% empty %}
+	<li>No existen usuarios registrados.</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+<!--
+<header>
+	<nav>
+		<ul>
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/usuarios">Usuarios</a></li>
+			<li><a href="/pacientes">Pacientes</a></li>
+			<li><a href="/sobre">Sobre</a></li>
+		</ul>
+	</nav>
+</header>
+<section>
+	<h1>Usuarios</h1>		
+	<ul>
+	{% for dato in usuarios %}
+	<li>{{dato.username}} - <em>{{dato.email}}</em>
+		<ul>
+			{% for item in pacientes %}
+				{% if item.usuario == dato %}
+					<li>{{item}}</li>
+				{% endif %}
+			{% endfor %}			
+		</ul>
+	</li>
+	{% endfor %}
+	</ul>
+</section>
+-->

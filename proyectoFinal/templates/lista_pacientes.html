@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block nombres %} Lista de Pacientes Registrados{% endblock %}
+
+{% block header %}
+	<h1 align="center" class="page-header"><strong><font color="olive">Lista de Pacientes Registrados</font></strong></h1>
+{% endblock %}
+
+{% block contenido %}
+<img src="/static/img/pacientes.png" align="left" style="width:200px;height:200px;">
+<section>
+	<a href="/paciente/nuevo">Agregar un paciente</a>	
+	<br>
+	<ul>
+		{% for dato in datos %}
+		<li >
+			<a action="/templates/paciente.html" class="list-group-item active"  href='/paciente/{{dato.id}}'>{{dato.nombres}} {{dato.apellidos}}</a><br>			
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}

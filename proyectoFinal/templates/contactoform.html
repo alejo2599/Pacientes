@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block header %}
+	<h1 align="center" class="page-header"><strong><font color="olive">Contactenos</font></strong></h1>
+{% endblock %}
+
+{% block contenido %}
+<div>
+	<img src="/static/img/contactenos.jpg" align="left" style="width:340px;height:200px;">
+</div>
+
+<div>
+	<form id="formulario" method="POST" action="" align="left">{% csrf_token %} {{formulario.as_p}}
+		<p><input type="submit" value="Enviar" class="btn btn-default"/><input type="reset" value="Cancelar" class="btn btn-default"/></p>
+	</form>
+</div>
+{% endblock %}

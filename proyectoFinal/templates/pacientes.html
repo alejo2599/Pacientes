@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block nombres %} Pacientes Registrados {% endblock %}
+
+{% block header %}
+	<h1 align="center"><strong>Pacientes Registrados:</strong></h1>
+{% endblock %}
+
+{% block contenido %}
+<a href="/paciente/nuevo">Agregar un paciente</a>
+<ul>
+	{% for dato in datos %}
+	<li> 
+		<a href="{% url proyectoFinal.views.detalle_paciente dato.id %}"> {{dato.nombres}} </a>
+	</li>
+	{% empty %}
+	<li>No existen pacientes registrados.</li>
+	{% endfor %}
+</ul>
+{% endblock %} 

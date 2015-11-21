@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} Plantilla de Inicio {% endcomment %}
+
+{% block header %}
+	<h1 align="center" class="page-header"><strong><font color="olive">Manejo de Pacientes</font></strong></h1>	
+{% endblock %}
+
+{% block contenido %}
+<img src="/static/images/pacientes.png" align="left" style="width:200px;height:200px;">
+<h3 class="text-info">
+	Los pacientes registrados actualmente son:
+	{% with total=pacientes.count %}
+		{{total}} paciente{{total|pluralize}}
+	{% endwith %} 
+</h3>
+	<ul class="text-success"  >
+		{% for dato in pacientes %}
+		<li class="list-group-item" > {{dato.cedula}} {{dato.nombres}} </li>
+		{% empty %}
+		<li>No existen pacientes registrados.</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+

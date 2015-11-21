@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1 align="center" class="page-header"><strong><font color="olive">Añadir comentarios a Pacientes</font></strong></h1>
+{% endblock %}
+
+{% block contenido %}
+<img src="/static/img/comenta.jpg" align="left" style="width:220px;height:200px;">
+	<div align="center">
+		<form id="formulario" method="POST" action="" >{% csrf_token %} {{formulario.as_p}}
+			<p><input type="submit" value="Confirmar" class="btn btn-default"/><input type="reset" value="Cancelar" class="btn btn-default"/></p>
+		</form>	
+	</div>
+{% endblock %}

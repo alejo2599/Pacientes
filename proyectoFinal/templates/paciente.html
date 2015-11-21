@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block nombres %} Pacientes Registrados {% endblock %}
+
+{% block header %}
+	<h1 align="center"><strong>Pacientes</strong></h1>
+{% endblock %}
+
+{% block contenido %}
+	<div id='pacientes'>
+		<h2>Paciente:</h2>
+			{% for item in pacientes %}
+				<p>{{item.texto}}</p>
+			{% empty%}
+				<p>No hay pacientes registrados.</p>
+			{% endfor %}		
+	</div>
+
+	<div id='comentarios'>
+		<h2>Comentarios:</h2>
+			{% for item in comentarios %}
+				<p>{{item.texto}}</p>
+			{% empty%}
+				<p>No hay comentarios registrados.</p>
+			{% endfor %}		
+	</div>
+{% endblock %}

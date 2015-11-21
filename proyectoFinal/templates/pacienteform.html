@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} Plantilla de Inicio {% endcomment %}
+
+{% block contenido %}
+<div align="center" class="form-group">
+	<form>
+	<br/>	
+	<legend style="font-size:18px"><strong>Nuevo Paciente</strong>
+		<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %} 
+			{{formulario.as_p}}
+			<p><input type="submit" value="Confirmar" class="btn btn-default" /> <input type="reset" value="Cancelar" class="btn btn-default"/></p>
+		</form>
+	</legend>
+	</form>
+</div>
+{% endblock %}
